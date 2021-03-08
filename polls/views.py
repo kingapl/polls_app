@@ -33,7 +33,7 @@ def create_answer(request, q_id):
             new_answer = answer_form.save(commit=False)
             new_answer.question = question
             new_answer.save()
-            return redirect('polls:index')
+            return redirect('polls:create_answer', question.id)
 
     context = {'answer_form': answer_form, 'question': question}
     return render(request, 'polls/create_answer.html', context)
