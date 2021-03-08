@@ -1,0 +1,11 @@
+<p>Cast your vote</p>
+<p>{{ question }}</p>
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+  {% csrf_token %}
+  {% for answer in answers %}
+  <input type="radio" id="{{ answer }}" name="vote" value="{{ answer }}">
+  <label for="{{ answer }}">{{ answer }}</label>
+  {% endfor %}
+  <button name="submit">Vote</button>
+</form>
