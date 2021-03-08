@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Question
+from .forms import QuestionForm, ChoiceForm
 
 
 def index(request):
@@ -8,3 +9,31 @@ def index(request):
 
     context = {'questions': questions}
     return render(request, 'polls/index.html', context)
+
+def create_question(request):
+    if request.method != 'POST':
+        question_form = QuestionForm()
+    else:
+        question_form = QuestionForm(data=request.POST)
+        if question_form.is_valid():
+            new_question = question_form.save()
+            return redirect('polls:create_answer', new_question.id)
+
+    context = {'question_form': question_form}
+    return render(request, 'polls/create_question.html', context)
+
+def create_answer(request, q_id):
+    question = Question.objects.get(id=q_id)
+
+    if request.method != 'POST':
+        answer_form = ChoiceForm()
+    else:
+        answer_form = ChoiceForm(data=request.POST)
+        if answer_form.is_valid():
+            new_answer = answer_form.save(commit=False)
+            new_answer.question = question
+            new_answer.save()
+            return redirect('polls:index')
+
+    context = {'answer_form': answer_form, 'question': question}
+    return render(request, 'polls/create_answer.html', context)

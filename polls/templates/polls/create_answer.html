@@ -1,0 +1,7 @@
+<p>Add answers to {{ question }}</p>
+
+<form action="{% url 'polls:create_answer' question.id %}" method="post">
+    {% csrf_token %}
+    {{ answer_form }}
+    <button name="submit">Add answer</button>
+</form>

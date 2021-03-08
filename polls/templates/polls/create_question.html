@@ -1,0 +1,8 @@
+<p>Create Poll</p>
+
+<p>Add question</p>
+<form action="{% url 'polls:create_question' %}" method="post">
+    {% csrf_token %}
+    {{ question_form }}
+    <button name="submit">Add question</button>
+</form>

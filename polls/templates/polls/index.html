@@ -1,4 +1,5 @@
 <p>Hello in Polls App</p>
+<a href="{% url 'polls:create_question' %}">Create</a>
 
 {% for question in questions %}
   <p>{{ question }}</p>
