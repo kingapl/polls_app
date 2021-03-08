@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from .models import Question
-from .forms import QuestionForm, ChoiceForm
+from .forms import QuestionForm, AnswerForm
 
 
 def index(request):
@@ -26,9 +26,9 @@ def create_answer(request, q_id):
     question = Question.objects.get(id=q_id)
 
     if request.method != 'POST':
-        answer_form = ChoiceForm()
+        answer_form = AnswerForm()
     else:
-        answer_form = ChoiceForm(data=request.POST)
+        answer_form = AnswerForm(data=request.POST)
         if answer_form.is_valid():
             new_answer = answer_form.save(commit=False)
             new_answer.question = question

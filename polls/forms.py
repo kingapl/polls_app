@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from .models import Question, Choice
+from .models import Question, Answer
 
 
 class QuestionForm(ModelForm):
@@ -8,7 +8,7 @@ class QuestionForm(ModelForm):
         model = Question
         fields = ['question_text']
 
-class ChoiceForm(ModelForm):
+class AnswerForm(ModelForm):
     class Meta:
-        model = Choice
-        fields = ['choice_text']
+        model = Answer
+        fields = ['answer_text']
