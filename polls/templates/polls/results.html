@@ -1,0 +1,7 @@
+<p>Results for {{ question }}</p>
+
+{% for answer in answers %}
+<p>{{ answer }} - {{ answer.votes }}</p>
+{% endfor %}
+
+<a href="{% url 'polls:index' %}">Home</a>

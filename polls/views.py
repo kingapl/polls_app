@@ -51,3 +51,10 @@ def vote(request, q_id):
 
     context = {'question': question, 'answers': answers}
     return render(request, 'polls/vote.html', context)
+
+def results(request, q_id):
+    question = Question.objects.get(id=q_id)
+    answers = question.answer_set.all()
+
+    context = {'question': question, 'answers': answers}
+    return render(request, 'polls/results.html', context)

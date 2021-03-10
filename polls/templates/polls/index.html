@@ -2,5 +2,7 @@
 <a href="{% url 'polls:create_question' %}">Create</a>
 
 {% for question in questions %}
-  <p>{{ question }}</p><a href="{% url 'polls:vote' question.id %}">Vote</a>
+  <p>{{ question }}</p>
+  <a href="{% url 'polls:vote' question.id %}">Vote</a>
+  <a href="{% url 'polls:results' question.id %}">Results</a>
 {% endfor %}
