@@ -42,5 +42,12 @@ def vote(request, q_id):
     question = Question.objects.get(id=q_id)
     answers = question.answer_set.all()
 
+    if request.method == 'POST':
+        answer = Answer.objects.get(answer_text=request.POST['vote'])
+        answer.votes += 1
+        answer.save()
+
+        return redirect('polls:index')
+
     context = {'question': question, 'answers': answers}
     return render(request, 'polls/vote.html', context)
