@@ -1,7 +1,13 @@
-<p>Results for {{ question }}</p>
+{% extends 'polls/base.html' %}
 
-{% for answer in answers %}
-<p>{{ answer }} - {{ answer.votes }}</p>
-{% endfor %}
+{% block content %}
 
-<a href="{% url 'polls:index' %}">Home</a>
+<div class="polls-container">
+  <p class="question">Results for {{ question }}</p>
+  {% for answer in answers %}
+    <p>{{ answer }} - {{ answer.votes }}</p>
+  {% endfor %}
+  <a href="{% url 'polls:index' %}" class="btn">Home</a>
+</div>
+
+{% endblock content %}

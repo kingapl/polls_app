@@ -1,9 +1,19 @@
-<p>Add answers to {{ question }}</p>
+{% extends 'polls/base.html' %}
 
-<form action="{% url 'polls:create_answer' question.id %}" method="post">
-    {% csrf_token %}
-    {{ answer_form }}
-    <button name="submit">Add answer</button>
-</form>
+{% block content %}
 
-<a href="{% url 'polls:index' %}">Finish</a>
+<div class="polls-container">
+  <h1 class="question">Create Poll</h1>
+  <p class="question">Add answers to {{ question }}</p>
+  <div class="answers-list">
+    <form action="{% url 'polls:create_answer' question.id %}" method="post">
+      {% csrf_token %}
+      {{ answer_form }}
+      <button name="submit" class="btn">Add answer</button>
+    </form>
+  </div>
+  <div class="buttons">
+    <a href="{% url 'polls:index' %}" class="btn">Finish</a>
+  </div>
+
+{% endblock content %}

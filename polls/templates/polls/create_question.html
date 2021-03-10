@@ -1,8 +1,20 @@
-<p>Create Poll</p>
+{% extends 'polls/base.html' %}
 
-<p>Add question</p>
-<form action="{% url 'polls:create_question' %}" method="post">
-    {% csrf_token %}
-    {{ question_form }}
-    <button name="submit">Add question</button>
-</form>
+{% block content %}
+
+<div class="polls-container">
+  <h1 class="question">Create Poll</h1>
+  <p class="question">Add question</p>
+
+  <div class="question">
+    <form action="{% url 'polls:create_question' %}" method="post">
+      {% csrf_token %}
+      {{ question_form }}
+      <div class="buttons">
+        <button name="submit" class="btn">Add question</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

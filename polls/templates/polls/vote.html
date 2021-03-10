@@ -1,11 +1,18 @@
-<p>Cast your vote</p>
-<p>{{ question }}</p>
+{% extends 'polls/base.html' %}
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
-  {% csrf_token %}
-  {% for answer in answers %}
-  <input type="radio" id="{{ answer }}" name="vote" value="{{ answer }}">
-  <label for="{{ answer }}">{{ answer }}</label>
-  {% endfor %}
-  <button name="submit">Vote</button>
-</form>
+{% block content %}
+
+<div class="polls-container">
+  <h1 class="question">Cast your vote</h1>
+  <p class="question">{{ question }}</p>
+  <form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+    {% for answer in answers %}
+    <input type="radio" id="{{ answer }}" name="vote" value="{{ answer }}">
+    <label for="{{ answer }}">{{ answer }}</label>
+    {% endfor %}
+    <button name="submit" class="vote-btn">Vote</button>
+  </form>
+</div>
+
+{% endblock content %}

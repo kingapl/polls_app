@@ -1,0 +1,137 @@
+:root {
+    --dark-turquise: #0e4352;
+    --turquise: #1284a3;
+    --medium-turquise: #77b7c9;
+    --light-turquise: #c7e3eb;
+    --yellow: #f5d442;
+    --pink: #d42f9f;
+}
+
+body {
+    background-color: var(--light-turquise);
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.navbar {
+    background-color: var(--medium-turquise);
+    border-bottom: 1px solid #787151;
+}
+
+.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 16px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.navbar-elem {
+    margin: 0 14px;
+    padding: 4px;
+    font-size: 20px;
+}
+
+.navbar-elem > a {
+    color: var(--dark-turquise);
+}
+
+.main-nav-elem {
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.polls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--turquise);
+    border: 1px solid var(--dark-turquise);
+    border-radius: 10px;
+    width: 700px;
+    margin: 30px 0;
+    padding: 10px;
+}
+
+.poll {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--medium-turquise);
+    border-radius: 10px;
+    width: 90%;
+}
+
+.poll-question, .poll-buttons {
+    margin: 4px;
+    padding: 4px;
+}
+
+.poll-question {
+    color: var(--dark-turquise);
+}
+
+.vote-btn, .results-btn, .btn {
+    border: none;
+    border-radius: 10px;
+    
+    font-size: 16px;
+    padding: 8px 12px;
+    margin: 0 4px;
+}
+
+.vote-btn {
+    background-color: var(--yellow);
+    color: var(--dark-turquise);
+}
+
+.results-btn {
+    background-color: var(--pink);
+    color: var(--light-turquise);
+}
+
+.question {
+    margin: 6px 4px;
+    padding: 4px;
+    color: var(--light-turquise);
+}
+
+.question > input {
+    font-size: 20px;
+}
+
+.answers-list {
+    display: flex;
+    flex-direction: column;
+    margin: 6px 4px;
+    padding: 4px;
+
+}
+
+.answers-list > input {
+    font-size: 20px;
+}
+
+.btn {
+    background-color: var(--yellow);
+    color: var(--dark-turquise);
+}
+
+.buttons {
+    margin: 10px;
+}

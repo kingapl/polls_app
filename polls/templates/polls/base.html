@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Polls Application</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+<body>
+  <nav class="navbar">
+    <ul class="navbar-list">
+      <li class="navbar-elem main-nav-elem"><a href="{% url 'polls:index' %}">Poll App</a></li>
+      <li class="navbar-elem"><a href="{% url 'polls:index' %}">Home</a></li>
+      <li class="navbar-elem"><a href="{% url 'polls:create_question' %}">Create</a></li>
+    </ul>
+  </nav>
+  <main class="container">
+    {% block content %}{% endblock content %}
+  </main>
+</body>
+</html>

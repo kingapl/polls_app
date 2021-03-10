@@ -1,8 +1,19 @@
-<p>Hello in Polls App</p>
-<a href="{% url 'polls:create_question' %}">Create</a>
+{% extends 'polls/base.html' %}
 
-{% for question in questions %}
-  <p>{{ question }}</p>
-  <a href="{% url 'polls:vote' question.id %}">Vote</a>
-  <a href="{% url 'polls:results' question.id %}">Results</a>
-{% endfor %}
+{% block content %}
+
+<div class="polls-container">
+  {% for question in questions %}
+  <div class="poll">    
+    <div class="poll-question">
+      <p>{{ question }}</p>
+    </div>
+    <div class="poll-buttons">
+      <a href="{% url 'polls:vote' question.id %}" class="vote-btn">Vote</a>
+      <a href="{% url 'polls:results' question.id %}" class="results-btn">Results</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}
