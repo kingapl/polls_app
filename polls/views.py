@@ -47,7 +47,7 @@ def vote(request, q_id):
         answer.votes += 1
         answer.save()
 
-        return redirect('polls:index')
+        return redirect('polls:results', question.id)
 
     context = {'question': question, 'answers': answers}
     return render(request, 'polls/vote.html', context)
